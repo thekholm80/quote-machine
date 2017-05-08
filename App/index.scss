@@ -1,0 +1,185 @@
+$text-color: #2E434A;
+$border-color: #334E57;
+$box-color: #DED2CE;
+
+$font: 'BioRhyme', serif;
+
+$mobile-width: 425px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width + 1}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid $border-color;
+
+  background-color: $box-color;
+  background-image: linear-gradient($box-color, white);
+
+  @include mobile {
+    width: 100vw;
+    min-height: 50vh;
+  }
+
+  @include tablet {
+    width: 90vw;
+    min-height: 40vh;
+  }
+
+  @include desktop {
+    width: 40vw;
+    min-height: 20vh;
+  }
+}
+
+.quote-home {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+
+  color: $text-color;
+}
+
+.quote {
+  margin: 15px;
+
+  font-weight: 500;
+  font-family: $font;
+
+  animation-duration: 4s;
+
+  @include mobile {
+    font-size: 45px;
+  }
+
+  @include tablet {
+    font-size: 30px;
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
+}
+
+.author {
+  margin: 15px;
+
+  font-family: $font;
+  text-align: right;
+
+  animation-duration: 3s;
+
+  @include mobile {
+    font-size: 40px;
+  }
+
+  @include tablet {
+    font-size: 35px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in-2 {
+  animation-name: fadeIn2;
+}
+
+@keyframes fadeIn2 {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  flex-grow: 0;
+}
+
+.button {
+  margin: 5px;
+
+  font-weight: 600;
+  color: $text-color;
+  text-align: center;
+
+  border: 1px solid $border-color;
+  border-radius: 5px;
+
+  background-color: white;
+
+  cursor: pointer;
+
+  @include mobile {
+    width: 40vw;
+    font-size: 35px;
+  }
+
+  @include tablet {
+    width: 20vw;
+    font-size: 28px;
+  }
+
+  @include desktop {
+    width: 10vw;
+    font-size: 16px;
+  }
+}
+
+.button:hover {
+  background-color: #C4C4C4;
+}
+
+.button-loading {
+  cursor: wait;
+}
