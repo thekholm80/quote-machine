@@ -26,7 +26,7 @@ function Buttons(props) {
     <div className='button-row'>
       { props.waiting
         ? <div className='button button-loading'>
-            Loading
+            New Quote
           </div>
         : <div className='button'
             onClick={ props.getNewQuote }>

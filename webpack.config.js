@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 const config = {
-  entry: './App/index.js',
+  entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
@@ -19,7 +19,7 @@ const config = {
     historyApiFallback: true
   },
   plugins: [ new HtmlWebpackPlugin({
-    template: 'App/index.html'
+    template: 'app/index.html'
   })]
 };
 
